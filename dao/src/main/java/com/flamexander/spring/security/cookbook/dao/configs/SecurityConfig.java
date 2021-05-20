@@ -22,10 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/authenticated/**").authenticated()
                 .antMatchers("/user_info").authenticated()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN", "SUPERADMIN") // ROLE_ADMIN, ROLE_SUPERADMIN
+                .antMatchers("/admin/createProduct").hasAnyAuthority("PERMISSION_CREATE_PRODUCTS")
+                .antMatchers("/admin/createOrder").hasAnyAuthority("PERMISSION_CREATE_ORDERS")
                 .anyRequest().permitAll()
                 .and()
                 .formLogin();
+
     }
 
     @Bean
