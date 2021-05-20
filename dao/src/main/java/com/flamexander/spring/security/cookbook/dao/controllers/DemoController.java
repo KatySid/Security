@@ -19,13 +19,23 @@ public class DemoController {
     }
 
     @GetMapping("/unsecured")
-    public String usecuredPage() {
+    public String unsecuredPage() {
         return "unsecured";
     }
 
     @GetMapping("/auth_page")
     public String authenticatedPage() {
         return "authenticated";
+    }
+
+    @GetMapping("/admin/createProduct")
+    public String createProductPage() {
+        return "create product";
+    }
+
+    @GetMapping("/admin/createOrder")
+    public String createOrderPage() {
+        return "create order";
     }
 
     @GetMapping("/admin")
